@@ -1,4 +1,4 @@
-import dronekit import connect, VehicleMode, LocationGlobalRelative, APIException
+from dronekit import connect, VehicleMode, LocationGlobalRelative, APIException
 import time
 import socket
 import exceptions
