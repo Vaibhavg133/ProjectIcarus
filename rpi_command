@@ -1,0 +1,5 @@
+sudo mavproxy.py --master udp:127.0.0.1:14550
+
+use this command to connect your pi with the APM 2.8
+This command helps in the interfacing
+
