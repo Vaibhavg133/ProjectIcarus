@@ -4,29 +4,12 @@ Test of connection with an actual ardupilot
 
 from dronekit import connect, VehicleMode
 import time
-
-#--- Start the Software In The Loop (SITL)
 import dronekit_sitl
-#
-#sitl = dronekit_sitl.start_default()   #(sitl.start)
-#connection_string = sitl.connection_string()
 connection_string="/dev/ttyACM0"
 baud_rate = 115200
-
-#--- Now that we have started the SITL and we have the connection string (basically the ip and udp port)...
-
 print(">>>> Connecting with the UAV <<<")
 vehicle = connect(connection_string, baud=baud_rate, wait_ready=True)     #- wait_ready flag hold the program untill all the parameters are been read (=, not .)
 
-#-- Read information from the autopilot:
-#- Version and attributes
-vehicle.wait_ready('autopilot_version')
-print('Autopilot version: %s'%vehicle.version)
-
-#- Does the firmware support the companion pc to set the attitude?
-print('Supports set attitude from companion: %s'%vehicle.capabilities.set_attitude_target_local_ned)
-
-#- Read the actual position
 print('Position: %s'% vehicle.location.global_relative_frame)
 
 #- Read the actual attitude roll, pitch, yaw
@@ -89,60 +72,4 @@ print("Maximum Throttle: %d"%vehicle.parameters['THR_MIN'])
 
 #--- Now we close the simulation
 vehicle.close()
-#sitl.stop()
-
 print("done")
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
